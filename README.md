@@ -1,4 +1,5 @@
-# Sistema Pepsus
+# SISTEMA PEPSUS
+
 ## Prontuário Eletrônico do Paciente: 
   Protótipo de um sistema para `Unidade Básica de Saúde (UBS)`. Cadastro a partir de um formulário de dados do paciente, tipo da consulta e os médicos atendentes disponíveis para atendimento nas UBS da cidade. 
 
