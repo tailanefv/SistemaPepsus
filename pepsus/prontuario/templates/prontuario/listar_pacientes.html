@@ -1,0 +1,50 @@
+{% extends 'prontuario/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+    <h3 style="color: #181661;"> Seja Bem Vindo: {{user.username}} !!!</h3>
+    <a href="{% url 'logout_usuario' %}">(   SAIR   )</a>
+        {% else %}
+          <h1 style="color: #181661;">Se deseja obter acesso quanto às informações restritas, por favor realize seu login.</h1>
+            {% endif %}
+            <br>
+    
+          <center><h2 style="color: #181661;"><b>Lista de Pacientes Agendados na U.B.S</b></h2></center><br>
+            
+        
+           {% for paciente in pacientes %}
+
+            <b style="color: #181661;">Nome:</b> {{ paciente.nome }}<br>  
+            <b style="color: #181661;">Código Sus:</b> {{ paciente.codigo_sus }}<br>
+             
+            {% for nome in paciente.medico.all %}
+            <b style="color: #181661;">Médico Atendente:</b> {{ nome }}<br/>
+            {% endfor %} 
+
+            {% for tipo in paciente.consulta.all %}
+            <b style="color: #181661;">Tipo da Consulta:</b> {{ tipo }}<br/>
+            
+            {% endfor %}  
+
+            {% for nome in paciente.exame.all %}
+            <b style="color: #181661;">Exames:</b> {{ nome }}<br/>  
+            {% endfor %}   
+            {% if user.is_authenticated %}
+            <br>
+            <a class="btn btn-default" href="{% url 'detalhar_paciente' id=paciente.id %}">
+                <button type="button" class="btn btn-info">Detalhar Paciente</button>
+            </a>
+            <a class="btn btn-default" href="{% url 'editar_paciente' id=paciente.id %}">
+                <button type="button" class="btn btn-primary">Editar Paciente </button>
+            </a>
+            <a class="btn btn-default" href="{% url 'deletar_paciente' id=paciente.id %}">
+                <button type="button" class="btn btn-danger">Deletar Paciente</button>
+            </a>
+            {% endif %}
+            <br>
+            <br>
+            
+        {% endfor %}
+
+                
+{% endblock %}
+           

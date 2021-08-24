@@ -1,0 +1,18 @@
+{% extends 'prontuario/base.html' %}
+    {% block content %}
+    <center><h2 style="color: rgb(32, 24, 102);"><b><i>QUADRO DE CONSULTAS</i></b> </h2></center>
+<br>
+    <table class='table'> <thead class='table-primary' style="color: rgb(87, 82, 133);">
+        {% for consulta in consultas %}
+        <tr>
+            <th scope='col'><center>TIPO</center></th>
+            <th scope='col'><center>TEMPO DE ESPERA:</center> </th>
+        
+            </tr>
+            <tr>
+                <td><center>{{ consulta.tipo }}</center></td>
+                <td><center>{{consulta.descricao}}</center></td>
+</tr>
+{% endfor %}
+</table></center>
+{% endblock %}

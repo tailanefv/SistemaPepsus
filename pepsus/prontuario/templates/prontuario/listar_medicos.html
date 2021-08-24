@@ -1,0 +1,46 @@
+{% extends 'prontuario/base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+    <h3 style="color: #181661;"> Seja Bem Vindo: {{user.username}}
+    <a href="{% url 'logout_usuario' %}">Sair 
+    </a></h3>
+    <br><br>
+        {% else %}
+          <h1 style="color: #181661;">Se deseja obter acesso quanto às informações restritas, por favor realize seu login.</h1>
+          <br> 
+          {% endif %}
+
+            <center><h2 style="color: #181661;"><b>Lista de Atendentes U.B.S</b></h2></center>
+            <table class="table" style="color: #181661;">
+
+                
+        {% for medico in medicos %}
+            <tr>
+                <td>
+       
+        <br>
+            <h4><b>Dr:</b> {{ medico.nome }}</h4>
+        
+            <br>
+             <br/>
+                   
+                </td>
+                {% if user.is_authenticated %}
+                <td>
+                    <br><br>
+                    <a class="btn btn-default" href="{% url 'detalhar_medico' id=medico.id %}">
+                        <button type="button" class="btn btn-info">Detalhar Médico(ª)</button>
+                    </a>
+                    <a class="btn btn-default" href="{% url 'editar_medico' id=medico.id %}">
+                        <button type="button" class="btn btn-primary">Editar Médico(ª)</button>
+                    </a>
+                    <a class="btn btn-default" href="{% url 'deletar_medico' id=medico.id %}">
+                        <button type="button" class="btn btn-danger">Deletar Médico{ª)</button>
+                    </a>
+                    
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table> 
+{% endblock %}

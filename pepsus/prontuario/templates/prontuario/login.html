@@ -1,0 +1,21 @@
+{% extends 'prontuario/base.html' %}
+{% block content %}
+    <form action="{% url 'autenticar_usuario' %}" method="post">
+    {% csrf_token %}
+    {% load static %}
+    <center><img height="100" width="200" src="{% static 'logo.png' %}"></center>
+    <br>
+        <div class="mb-3" >
+            <label for="exampleInputEmail1" class="form-label" style="color: #181661;"><b>Usuário</b></label>
+            <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label" style="color: #181661;"><b>Senha</b></label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+    <center><button type="submit" class="btn btn-primary">Logar</button></center>
+    </form>
+    
+
+    
+{% endblock %}

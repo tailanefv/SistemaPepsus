@@ -1,0 +1,10 @@
+{% extends 'prontuario/base.html' %}
+
+{% block content %}
+    <form method="POST" class="table" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+         </div>
+    </form>
+{% endblock %}

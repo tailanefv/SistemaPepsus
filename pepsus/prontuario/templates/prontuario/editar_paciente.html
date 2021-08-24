@@ -1,0 +1,16 @@
+{% extends 'prontuario/base.html' %}
+
+{% block content %}
+    
+    <form method="POST" class="table" style="color: #181661;">
+        <center><h2><b>Nova Ficha Paciente</b></h2></center>
+    {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+         </div>
+         <br>
+         {% if user.is_authenticated %}
+        <center><button type="submit" class="btn btn-success ">Salvar Ficha</button></center>
+        {% endif %}
+    </form>
+{% endblock %}

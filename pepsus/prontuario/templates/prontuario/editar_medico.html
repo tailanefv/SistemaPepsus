@@ -1,0 +1,14 @@
+{% extends 'prontuario/base.html' %}
+
+{% block content %}
+    
+    <form method="POST" class="table" enctype="multipart/form-data" style="color: #181661;"">
+        <center><h2><b>Novo Médico</b></h2></center>
+    {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+         </div>
+         <br>
+        <center><button type="submit" class="btn btn-success">Salvar Dados</button></center>
+    </form>
+{% endblock %}

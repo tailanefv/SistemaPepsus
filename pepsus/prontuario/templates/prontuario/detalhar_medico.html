@@ -1,0 +1,19 @@
+{% extends 'prontuario/base.html' %}
+    {% block content %}
+    <center><h2 style="color: #181661;"><i><b>FICHA DO MÉDICO</b></i> </h2></center>
+<br>
+    <center><table class='table'> <thead class='table-primary'>
+      
+    <tr>
+    <th scope='col'>Nome</th>
+    <th scope='col'>Especialidade</th>
+    <th scope='col'>Código CRM</th>
+
+    </tr>
+    <tr>
+        <td>{{ medico.nome }}</td>
+        <td>{{medico.especialidade}}</td>
+        <td>{{medico.crm}}</td>
+</tr>
+</table></center>
+{% endblock %}
